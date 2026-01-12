@@ -1,0 +1,46 @@
+<section id="TankInfo" class="wrapper style1">
+ 
+    
+    <div class="tab">
+        <button class="tablinks" onclick="openTankTabs(event, 'Tank-search')" id="tankInfoDefaultOpen">TankInfo Code</button>
+      </div>
+
+      <div id="Tank-search" class="tabcontent">
+        <h3>Tank Info</h3>
+        <div>
+            <div class="inner">
+              <table>
+                <tr>
+                  <td>
+                    <input id="tankSearchInput" style="background-color: rgb(239, 239, 240); font-size:larger; font-weight: bold;" onKeyPress="triggerScaleSearchOnEnter(event, this)">
+                  </td>
+                  <td>
+    <div style="align-content:center" class="text-center"><input style="background-color: rgb(239, 239, 240);"  id="btnSearch" type="button" value="Search"  onclick="loadjsGridTankInfoSearch()" /><br /></div>
+                  </td>
+                </tr>
+                
+              </table>
+                
+                
+            </div>
+              
+                <div id="tankjsGrid">
+                  <table>
+                      <tr>
+                          
+                          <td>
+                              <div class="details-form-field">
+                                  
+                                  <input id="scaleSearchScaleNumber" name="scaleSearchScaleNumber" type="text" />
+                              </div>
+                          </td>
+                      
+                  </table>
+            
+            
+              </div>
+      </div>
+      </div>    
+
+      
+</section>

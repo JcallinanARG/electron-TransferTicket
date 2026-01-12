@@ -1,0 +1,115 @@
+USE [ARG_TransferTickets]
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateTransferTicketDetail]    Script Date: 10/2/2024 4:27:12 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Ceegan Danielson>
+
+-- =============================================
+ALTER PROCEDURE [dbo].[UpdateTransferTicketDetail] 
+	-- Add the parameters for the stored procedure here
+	@TransferDetailID as varchar(50),
+	@Tank as VarChar(50),
+	@Feet as varchar(50),
+	@Inches as varchar(50),
+	@Gallons as varchar(50),
+	@Direction as varchar(20),
+	@Comments as varchar(50),
+	@AfterFeet as varchar(50),
+	@AfterInches as varchar(50),
+	@Completed as bit
+
+
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+
+UPDATE [dbo].TransferDetails
+   SET 
+	      Tank = REPLACE(@Tank, 'tk', '')  -- Remove 'tk' from the Tank value
+      ,BeforeFeet = @Feet
+	  ,BeforeInches = @Inches
+	  ,Gallons =@Gallons
+	  ,Direction = @Direction
+	  ,Comments = @Comments
+	  ,AfterFeet = @AfterFeet
+	  ,AfterInches = @AfterInches
+	  ,Complete = @Completed
+ WHERE TransferDetailsID = @TransferDetailID
+
+
+ 
+
+END
+
+USE [ARG_TransferTickets]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertTransferDetails]    Script Date: 10/2/2024 4:41:37 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[InsertTransferDetails] 
+	-- Add the parameters for the stored procedure here
+	
+           @TransferID as varchar(100),
+           @Tank as varchar(50),
+           @BeforeFeet as varchar(50),
+           @BeforeInches as varchar(50),
+
+           @Gallons as varchar(50),
+		    @Direction as varchar(50),
+			 @Comments as Varchar(500),
+			 @AfterFeet as varchar(50),
+			@AfterInches as varchar(50),
+			@Completed as bit
+          
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+
+	INSERT INTO [dbo].TransferDetails
+           (TransferID
+           ,Tank
+           ,BeforeFeet
+           ,BeforeInches
+           ,Gallons
+           ,Direction
+		   ,Comments
+		   ,AfterFeet
+		   ,AfterInches
+		   ,Complete
+           )
+
+     VALUES(
+	 @TransferID, 
+	 REPLACE(@Tank, 'tk', ''),  -- Remove 'tk' from the Tank value
+	 @BeforeFeet,
+	 @BeforeInches,
+	 @Gallons,
+	 @Direction,
+	 @Comments,
+	 @AfterFeet,
+	 @AfterInches,
+	 @Completed
+	 )
+
+
+	End
+

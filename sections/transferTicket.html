@@ -1,0 +1,1080 @@
+
+<section id="transferTicketEntry" class="wrapper style1">
+ 
+      
+    <div class="tab">
+        <button class="tablinks" onclick="openTicketTabs(event, 'transferTicket-search')">New Transfer Ticket</button>
+        <button class="tablinks" onclick="openTicketTabs(event, 'viewTransferTickets')" id="transferTicketDefaultOpen">View Transfer Tickets</button>
+        <button class="tablinks" onclick="openTicketTabs(event, 'viewClosedTransferTickets')">Complete Tickets</button>
+        <button class="tablinks" onclick="openTicketTabs(event, 'viewAllClosedTransferTickets')">View All Transfer Ticket</button>
+        <button class="tablinks" onclick="openTicketTabs(event, 'editTransfer')"></button>
+      </div>
+<div id = 'transferTicket-search' class="tabcontent">
+<div id ='transferTicketEntry'>
+
+  <table>
+    <tr>
+      <td>
+        <label for="transferReasonCode1">Reason Code:</label>
+      </td>
+      <td>
+      <select name="transferReasonCode1" id="transferReasonCode1"  style="background-color: rgb(239, 239, 240); width: 300px;  Text-align: left" >
+        <option value=""></option>
+        </select>
+        </td>
+    <td>
+      <label for="transferTimeStart">Date Time Started:</label>
+    </td>
+    <td>
+      <input id="transferTimeStart" name="transferTimeStart" type="datetime-local" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="OperatorName">Operator Name:</label>
+      </td>
+      <td>
+        <!--
+          Popuate with unit logon
+        -->
+        <input id="transferOperator" name="transferOperator" type="text" style="background-color: rgb(239, 239, 240); width: 300px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <label for="transferTimeFinish">Date Time Finished:</label>
+      </td>
+      <td>
+        <input id="transferTimeFinish" name="transferTimeFinish" type="datetime-local" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="OperatorName">Ending Operator Name:</label>
+      </td>
+      <td>
+        <input id="transferOperatorFinish" name="transferOperatorFiinish" type="text" style="background-color: rgb(239, 239, 240); width: 300px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <label for="transferMachineLogon">Machine Logon:</label>
+      </td>
+      <td>
+        <input id="transferMachineLogon" name="transferMachineLogon" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+    </table>
+
+
+
+  <table>
+    <tr>
+      <th>Direction</th>
+      <th>Tank/OrderNumber</th>
+      <th>Gallons</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Comments</th>
+      <th>Complete</th>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection1">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="fromBeforeTank1" name="fromBeforeTank1" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeGallons1" name="fromBeforeGallons1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeFeet1" name="fromBeforeFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeInches1" name="fromBeforeInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterFeet1" name="fromAfterFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterInches1" name="fromAfterInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterComments1" name="fromAfterComments1" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromLineItemComplete1" name="fromLineItemComplete1" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <select id="TransferDirection2">
+        <option value="IN">IN</option>
+        <option value="OUT">OUT</option>
+      </select>
+      </td>
+      <td>
+        <input id="fromBeforeTank2" name="fromBeforeTank2" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeGallons2" name="fromBeforeGallons2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeFeet2" name="fromBeforeFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeInches2" name="fromBeforeInches2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterFeet2" name="fromAfterFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterInches2" name="fromAfterInches2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterComments2" name="fromAfterComments2" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromLineItemComplete2" name="fromLineItemComplete2" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+      
+    </tr>
+    <tr>
+      <td>
+      <select id="TransferDirection3">
+        <option value="IN">IN</option>
+        <option value="OUT">OUT</option>
+      </select>
+      </td>
+      <td>
+        <input id="fromBeforeTank3" name="fromBeforeTank3" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeGallons3" name="fromBeforeGallons3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeFeet3" name="fromBeforeFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeInches3" name="fromBeforeInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterFeet3" name="fromAfterFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterInches3" name="fromAfterInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterComments3" name="fromAfterComments3" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromLineItemComplete3" name="fromLineItemComplete3" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+      
+    </tr>
+    <tr>
+      <td>
+      <select id="TransferDirection4">
+        <option value="IN">IN</option>
+        <option value="OUT">OUT</option>
+      </select>
+      </td> 
+      <td>
+        <input id="fromBeforeTank4" name="fromBeforeTank4" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeGallons4" name="fromBeforeGallons4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeFeet4" name="fromBeforeFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeInches4" name="fromBeforeInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterFeet4" name="fromAfterFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterInches4" name="fromAfterInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterComments4" name="fromAfterComments4" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromLineItemComplete4" name="fromLineItemComplete4" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+           <select id="TransferDirection5">
+        <option value="IN">IN</option>
+        <option value="OUT">OUT</option>
+      </select>
+      </td>
+   
+      <td>
+        <input id="fromBeforeTank5" name="fromBeforeTank5" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeGallons5" name="fromBeforeGallons5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeFeet5" name="fromBeforeFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromBeforeInches5" name="fromBeforeInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterFeet5" name="fromAfterFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterInches5" name="fromAfterInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromAfterComments5" name="fromAfterComments5" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="fromLineItemComplete5" name="fromLineItemComplete5" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+    </tr>
+  </table>
+
+
+  <!-- <table>
+    <td>
+  <table>
+    <tr>
+      <th>Direction</th>
+      <th>Tank</th>
+      <th>Gallons</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Comments</th>
+      <th>Complete</th>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection6">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+        </td>
+      <td>
+        <input id="toBeforeTank1" name="toBeforeTank1" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeGallons1" name="toBeforeGallons1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeFeet1" name="toBeforeFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeInches1" name="toBeforeInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterFeet1" name="toAfterFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterInches1" name="toAfterInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterComments1" name="toAfterComments1" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toLineItemComplete1" name="toLineItemComplete1" type="checkbox" style="background-color: rgb(255, 127, 127); height:35; width:35; "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection7">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+        </td>
+      <td>
+        <input id="toBeforeTank2" name="toBeforeTank2" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeGallons2" name="toBeforeGallons2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeFeet2" name="toBeforeFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeInches2" name="toBeforeInches2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterFeet2" name="toAfterFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterIn2" name="toAfterIn2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+   
+      <td>
+        <input id="toAfterComments2" name="toAfterComments2" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toLineItemComplete2" name="toLineItemComplete2" type="checkbox" style="background-color: rgb(255, 127, 127);  "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection8">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+        </td>
+      <td>
+        <input id="toBeforeTank3" name="toBeforeTank3" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeGallons3" name="toBeforeGallons3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeFeet3" name="toBeforeFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeInches3" name="toBeforeInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterFeet3" name="toAfterFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterInches3" name="toAfterInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterComments3" name="toAfterComments3" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toLineItemComplete3" name="toLineItemComplete3" type="checkbox" style="background-color: rgb(255, 127, 127);  "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection9">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+        </td>
+      <td>
+        <input id="toBeforeTank4" name="toBeforeTank4" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeGallons4" name="toBeforeGallons4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeFeet4" name="toBeforeFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeInches4" name="toBeforeInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterFeet4" name="toAfterFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterInches4" name="toAfterInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterComments4" name="toAfterComments4" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toLineItemComplete4" name="toLineItemComplete4" type="checkbox" style="background-color: rgb(255, 127, 127);  "/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select id="TransferDirection10">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+        </td>
+      <td>
+        <input id="toBeforeTank5" name="toBeforeTank5" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeGallons5" name="toBeforeGallons5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeFeet5" name="toBeforeFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toBeforeInches5" name="toBeforeInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterFeet5" name="toAfterFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterInches5" name="toAfterInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toAfterComments5" name="toAfterComments5" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="toLineItemComplete5" name="toLineItemComplete5" type="checkbox" style="background-color: rgb(255, 127, 127); "/>
+      </td>
+    </tr>
+  </table>
+</td>
+<td>
+
+
+</td>
+
+</table> -->
+
+      <table>
+        <tr>
+          <td>
+            <td>
+              <button type="button" id="saveTransferTicket" onclick="saveTransferHeader()" style="background-color: rgb(239, 239, 240);">Save</button>
+            </td>
+          </td>
+          <td>
+            <td>
+              <!-- <button type="button" id="completeTransferTicket" style="background-color: rgb(239, 239, 240);">Complete</button> -->
+            </td>
+          </td>
+        </tr>
+      </table>
+
+
+</div>
+</div>
+<div id="editTransfer" class="tabcontent">
+  <table>
+    <tr>
+      <td>
+        <label for="transferHeaderIDEdit">TransferID:</label>
+      </td>
+      <td>
+        <input id="transferHeaderIDEdit" name="transferHeaderIDEdit" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+
+    
+    <tr>
+      <td>
+        <label for="transferReasonCode1Edit">Reason Code:</label>
+      </td>
+      <td>
+      <select name="transferReasonCode1Edit" id="transferReasonCode1Edit"  style="background-color: rgb(239, 239, 240); width: 300px;  Text-align: left" >
+        <option value=""></option>
+        </select>
+        </td>
+    <td>
+      <label for="transferTimeStartEdit">Date Time Started:</label>
+    </td>
+    <td>
+      <input id="transferTimeStartEdit" name="transferTimeStartEdit" type="datetime-local" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="OperatorNameEdit">Operator Name:</label>
+      </td>
+      <td>
+        <!--
+          Popuate with unit logon
+        -->
+        <input id="transferOperatorEdit" name="transferOperatorEdit" type="text" style="background-color: rgb(239, 239, 240); width: 300px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <label for="transferTimeFinishEdit">Date Time Finished:</label>
+      </td>
+      <td>
+        <input id="transferTimeFinishEdit" name="transferTimeFinishEdit" type="datetime-local" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="OperatorNameEndingEdit">Ending Operator Name:</label>
+      </td>
+      <td>
+        <input id="transferOperatorFinishEdit" name="transferOperatorFinishEdit" type="text" style="background-color: rgb(239, 239, 240); width: 300px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <label for="transferMachineLogonEdit">Machine Logon:</label>
+      </td>
+      <td>
+        <input id="transferMachineLogonEdit" name="transferMachineLogonEdit" type="text" style="background-color: rgb(239, 239, 240); width: 200px; text-align: left" maxlength="100"/>
+      </td>
+
+    </tr>
+    </table>
+    <div class="autocomplete">
+      <!-- autocomplete here -->
+      <input type="text" id="autocomplete-input" oninput="HelloWorld()" placeholder="Type to search...">
+      <ul id="suggestions-list"></ul>
+  </div>
+  
+  <!-- <script defer>
+
+  </script>
+   -->
+
+
+
+
+
+
+
+
+
+  <table>
+    <tr>
+      <th>TransferDetailID</th>
+      <th>Direction</th>
+      <th>Tank/OrderNumber</th>
+      <th>Gallons</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Feet</th>
+      <th>Inches</th>
+      <th>Comments</th>
+      <td>Complete</td>
+    </tr>
+    <tr>
+      <td>
+        <input id="editTransferDetailID1" name="editTransferDetailID1" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection1">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <!-- <td>
+        <input id="editTranferTank1Test" oninput="handleInput()" name="editTranferTank1Test" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td> -->
+      <td>
+        <input id="editTranferTank1" name="editTranferTank1" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons1" name="editTransferGallons1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet1" name="editTransferFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches1" name="editTranferInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet1" name="editTransferFeet1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches1" name="editTranferInches1" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments1" name="editTranferComments1" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted1" name="editTransferCompleted1" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+    
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID2" name="editTransferDetailID2" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection2">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank2" name="editTranferTank2" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons2" name="editTransferGallons2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet2" name="editTransferFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches2" name="editTranferInches2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet2" name="editTransferAfterFeet2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches2" name="editTranferAfterInches2" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments2" name="editTranferComments2" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted2" name="editTransferCompleted2" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID3" name="editTransferDetailID3" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+      <select id="editTransferDirection3">
+        <option value="IN">IN</option>
+        <option value="OUT">OUT</option>
+      </select>
+      <td>
+        <input id="editTranferTank3" name="editTranferTank3" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons3" name="editTransferGallons3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet3" name="editTransferFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches3" name="editTranferInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+        <td>
+          <input id="editTransferAfterFeet3" name="editTransferAfterFeet3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+        </td>
+        <td>
+          <input id="editTranferAfterInches3" name="editTranferAfterInches3" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+        </td>
+
+      </td>
+      <td>
+        <input id="editTranferComments3" name="editTranferComments3" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted3" name="editTransferCompleted3" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID4" name="editTransferDetailID4" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection4">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank4" name="editTranferTank4" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons4" name="editTransferGallons4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet4" name="editTransferFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches4" name="editTranferInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet4" name="editTransferAfterFeet4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches4" name="editTranferAfterInches4" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments4" name="editTranferComments4" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted4" name="editTransferCompleted4" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID5" name="editTransferDetailID5" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection5">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank5" name="editTranferTank5" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons5" name="editTransferGallons5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet5" name="editTransferFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches5" name="editTranferInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet5" name="editTransferAfterFeet5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches5" name="editTranferAfterInches5" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+  
+      <td>
+        <input id="editTranferComments5" name="editTranferComments5" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted5" name="editTransferCompleted5" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+<!-- 
+    <tr>
+      <td>
+        <input id="editTransferDetailID6" name="editTransferDetailID6" type= "text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection6">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank6" name="editTranferTank6" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons6" name="editTransferGallons6" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet6" name="editTransferFeet6" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches6" name="editTranferInches6" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet6" name="editTransferFeet6" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches6" name="editTranferInches6" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments6" name="editTranferComments6" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted6" name="editTransferCompleted6" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID7" name="editTransferDetailID7" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection7">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank7" name="editTranferTank7" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons7" name="editTransferGallons7" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet7" name="editTransferFeet7" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches7" name="editTranferInches7" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet7" name="editTransferFeet7" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches7" name="editTranferInches7" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments7" name="editTranferComments7" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted7" name="editTransferCompleted7" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID8" name="editTransferDetailID8" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection8">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank8" name="editTranferTank8" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons8" name="editTransferGallons8" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet8" name="editTransferFeet8" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches8" name="editTranferInches8" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet8" name="editTransferFeet8" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches8" name="editTranferInches8" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments8" name="editTranferComments8" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted8" name="editTransferCompleted8" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID9" name="editTransferDetailID9" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection9">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank9" name="editTranferTank9" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons9" name="editTransferGallons9" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet9" name="editTransferFeet9" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches9" name="editTranferInches9" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet9" name="editTransferFeet9" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches9" name="editTranferInches9" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments9" name="editTranferComments9" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted9" name="editTransferCompleted9" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td>
+        <input id="editTransferDetailID10" name="editTransferDetailID10" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <select id="editTransferDirection10">
+          <option value="IN">IN</option>
+          <option value="OUT">OUT</option>
+        </select>
+      </td>
+      <td>
+        <input id="editTranferTank10" name="editTranferTank10" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferGallons10" name="editTransferGallons10" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferFeet10" name="editTransferFeet10" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferInches10" name="editTranferInches10" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferAfterFeet10" name="editTransferFeet10" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTranferAfterInches10" name="editTranferInches10" type="number" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+
+      <td>
+        <input id="editTranferComments10" name="editTranferComments10" type="text" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <input id="editTransferCompleted10" name="editTransferCompleted10" type="checkbox" style="background-color: rgb(239, 239, 240); width: 75px; text-align: left" maxlength="100"/>
+      </td>
+    </tr> -->
+<table>
+  <td>
+
+  </td>
+</table>
+<td>
+  <label for="updateMSG">Message:</label>
+</td>>
+<td>
+  <input id="updateMSG" name="updateMSG" type="text" style="background-color: rgb(239, 239, 240); width: 500px; text-align: left" maxlength="100" />
+</td>
+
+    </table>
+    <table>
+      <tr>
+        <td>
+          <button id="updateTransferBtn" class="updateTransferBtn" style="background-color:rgb(239, 239, 240);"  onclick="updateDetailRecordsButton()">Update</button>
+        </td>
+        <td>
+          <button id="completeTransfer" class="completeTransfer" style="background-color:rgb(239, 239, 240);"  onclick="completeAllTransfer()">Mark All Complete</button>
+        </td>
+        <td>
+          <button id="deleteTransfer" class="deleteTransfer" style="background-color:rgb(239, 239, 240);"  onclick="DeleteTransfer()">Delete Transfer</button>
+        </td>
+      </tr>
+      
+       
+   
+      
+    </table>
+
+
+ 
+
+</div>
+
+<div id="divDeleteTransfer" class="w3-panel w3-green w3-display-container" style="display:none">
+<table>
+  <tr>
+ <td>
+<button type="button" id="btnDeleteTransferTicketYes" onclick="DeleteTransferConfirm()" style="background-color: rgb(239, 239, 240);">Delete</button>
+ </td>
+ <td>
+<button type="button" id="btnCancelDelete" onclick="DeleteTransferCancel()" style="background-color: rgb(239, 239, 240);">Cancel</button>
+ </td>
+  </tr>
+</table>
+  
+  
+  <br>
+  <br>
+
+</div>
+<!--
+************************************
+  Begin Viewing transfer tickets
+    -Show transfer tickets previously entered by user?
+************************************
+-->
+
+<div id="viewTransferTickets" class="tabcontent">
+  <table>
+    <tr>
+      <td>
+        Search:
+      </td>
+      <td>
+        <input id="searchTransfer" name="searchTransfer" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <div style="align-content:center" class="text-center"><input style="background-color: rgb(239, 239, 240);"  id="btnSearchTransfer" type="button" value="Search" 
+          onclick="loadjsGridTransferTicket()" /><br /></div>
+      </td>
+    </tr>
+  </table>
+  <div id="transferTicketjsGrid"></div>
+</div>
+
+
+  <div id="transferTicketjsGrid"></div>
+</div>
+<div id="viewClosedTransferTickets" class="tabcontent">
+  <table>
+    <tr>
+      <td>
+        Search:
+      </td>
+      <td>
+        <input id="searchClosedTransfer" name="searchClosedTransfer" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        Start Date:
+      </td>
+      <td>
+        <input id="searchTransferDateStartClosed" name="searchTransferDateStartClosed" type="date" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        End Date:
+      </td>
+      <td>
+        <input id="searchTransferDateEndClosed" name="searchTransferDateEndClosed" type="date" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+      </td>
+      <td>
+        <div style="align-content:center" class="text-center"><input style="background-color: rgb(239, 239, 240);"  id="btnSearchTransfer" type="button" value="Search" 
+          onclick="loadjsGridClosedTransferTicket()" /><br /></div>
+      </td>
+      
+    </tr>
+  </table>
+  <div id="closedTransferTicketjsGrid"></div>
+  </div>  
+
+  <div id="viewAllClosedTransferTickets" class="tabcontent">
+    <table>
+      <tr>
+        <td>
+          Search:
+        </td>
+        <td>
+          <input id="searchAllClosedTransfer" name="searchAllClosedTransfer" type="text" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+        </td>
+        <td>
+          Start Date:
+        </td>
+        <td>
+          <input id="searchTransferDateStartAll" name="searchTransferDateStartAll" type="date" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+        </td>
+        <td>
+          End Date:
+        </td>
+        <td>
+          <input id="searchTransferDateEndAll" name="searchTransferDateEndAll" type="date" style="background-color: rgb(239, 239, 240); width: 125px; text-align: left" maxlength="100"/>
+        </td>
+  
+        <td>
+          <div style="align-content:center" class="text-center"><input style="background-color: rgb(239, 239, 240);"  id="btnSearchTransfer" type="button" value="Search" 
+            onclick="loadjsGridAllTransferTicket()" /><br /></div>
+        </td>
+      </tr>
+    </table>
+    <div id="closedAllTransferTicketjsGrid"></div>
+    </div>  
+<link href="jsgrid/jsgrid.min.css" rel="stylesheet" />
+<link href="jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+<script src="jsgrid/jsgrid.min.js"></script>
+
+
+
+  <!-- <script type="text/javascript" src="scripts/ticket.js"></script> -->
+ 
+</section>
+

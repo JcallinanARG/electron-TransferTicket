@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+
+<html>
+
+<head>
+    <title>American Refining Group - Transfer Ticket - 4/29/2024  Version: 1.1.0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="connect-src 'self' http://localhost:8080 http://b-d-web1:107 http://b-d-sql3:82 http://b-p-web4:107  http://b-d-web1:6002 ; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;"> 
+     <!-- <link rel="stylesheet" href="assets/css/main.css" />  -->
+    <link rel="import" href="sections/login.html">
+    <link rel="import" href="sections/transferTicket.html">
+    <link rel="import" href="sections/ReasonCode.html">
+    <link rel="import" href="sections/tankInfoSearch.html">
+    <link rel="import" href="sections/TankInfo.html">
+    <link rel="import" href="sections/AppInfo.html">
+    <link rel="stylesheet" href="assets/css/index.css" /> 
+
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <div class="inner">
+            <nav>
+                <ul>
+                    <li>
+                        <div id="logo-container"><img src="assets/css/images/logo.svg" width="100%"></div>
+                    </li>
+                     <li><a id="login-menu" data-section="login" href="#">Login</a></li> 
+                    <li><a id="transferTicket-menu" data-section="transferTicketEntry" href="#">Transfer Ticket</a></li>
+                    <li><a id="reasoncode-menu" data-section="reasoncode" href="#">Reason Code</a></li>
+                    <li><a id="tankInfo-menu" data-section="TankInfo" href="#">Tank Info</a></li>
+                    <li><a id="AppInfo-menu" data-section="AppInfo" href="#">App Info</a></li>
+                
+                </ul>
+
+            </nav>
+        </div>
+
+    </section>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+        <div class="inner">
+            <ul class="menu">
+                <li style="color:dimgrey">&copy; American Refining Group. All rights reserved.</li>
+            </ul>
+        </div>
+    </footer>
+    
+
+
+
+
+
+    <!-- Scripts -->
+    <!--<script>
+       // window.$ = window.jQuery = require('./assets/js/jquery.min.js');
+    </script>
+    <script>
+        //window.i18n = new(require('./translations/i18n'));
+    </script> -->
+    
+ 
+
+
+    <!-- <script src="assets/js/jquery.min.js"></script>
+    <script defer src="assets/js/jquery.scrollex.min.js"></script>
+    <script  defer src="assets/js/jquery.scrolly.min.js"></script>
+    <script defer src="assets/js/skel.min.js"></script>
+    <script defer src="assets/js/util.js"></script> -->
+
+    <!-- <script src="assets/js/main.js"></script> -->
+
+   <!-- <script>
+        require('./assets/js/menu')
+        require('./assets/js/translations')
+        require('./assets/js/ipc')
+        require('./assets/js/dialog')
+    </script>
+-->
+
+<script  type="text/javascript" src="preload.js"></script>
+<script defer>
+   // navigation.menu.init()
+   async function loadJS(url, location){
+  //url is URL of external file, implementationCode is the code
+  //to be called from the file, location is the location to
+  //insert the <script> element
+ var scriptTag = document.createElement('script');
+  scriptTag.src = url;
+  document.getElementById('wrapper') .appendChild(scriptTag);
+  console.log(scriptTag)
+
+}
+
+
+ async function importJavascriptForSections(){
+  // this.loadJS('require.js',$("#wrapper") );
+
+ //await loadJS('assets/js/jquery.min.js', document.getElementById("wrapper") );
+     
+ window.$ = window.jQuery = require('./assets/js/jquery.min.js');
+
+
+ await loadJS('assets/js/jquery.scrollex.min.js',document.getElementById("wrapper") );
+ await loadJS('assets/js/jquery.scrolly.min.js',document.getElementById("wrapper") );
+ await loadJS('assets/js/skel.min.js',document.getElementById("wrapper") );
+   this.loadJS('scripts/login.js',document.getElementById("wrapper") );
+   this.loadJS('scripts/transferTicket.js',document.getElementById("wrapper") );
+   this.loadJS('scripts/ReasonCode.js',document.getElementById("wrapper") );
+   this.loadJS('scripts/tankInfoSearch.js',document.getElementById("wrapper") );
+   await loadJS('assets/js/main.js',document.getElementById("wrapper") );
+
+  
+ }
+   importJavascriptForSections()
+</script>
+<script defer src="assets/js/menu.js"></script>
+<!-- Below may not be needed -- Clean up -->
+<!-- <script defer type="text/javascript" src="scripts/transferTicket.js"></script> -->
+<!-- <script defer type="text/javascript" src="scripts/carrier.js"></script>
+<script defer type="text/javascript" src="scripts/customer.js"></script>
+<script defer type="text/javascript" src="scripts/login.js"></script>
+<script defer type="text/javascript" src="scripts/product.js"></script>
+<script defer type="text/javascript" src="scripts/scale.js"></script>
+
+<script defer type="text/javascript" src="scripts/trailer.js"></script>
+<script defer type="text/javascript" src="scripts/truck.js"></script>
+<script defer type="text/javascript" src="scripts/weightMaster.js"></script> -->
+
+<script defer>
+ function LoginScreen() {
+  setTimeout(() =>   document.getElementById("login-menu").click()  , 3000)
+
+}
+LoginScreen();
+</script>
+</body>
+
+</html>
