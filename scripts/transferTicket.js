@@ -220,6 +220,30 @@ function completeAllTransfer(){
 
 }
 
+function shouldPromptFinishedTankSample(transferId, endTimeValue) {
+  if (!transferId || !endTimeValue) {
+    return false;
+  }
+
+  const promptKey = `finishedTankSample:${transferId}:${endTimeValue}`;
+  if (sessionStorage.getItem(promptKey)) {
+    return false;
+  }
+
+  sessionStorage.setItem(promptKey, "true");
+  return true;
+}
+
+function getFinishedTankSampleResponse() {
+  const alertMessage = [
+    "Finished tank sample reminder:",
+    "Please sample the finished tank after completing the transfer.",
+    "Select OK for Yes or Cancel for N/A."
+  ].join("\n");
+
+  return window.confirm(alertMessage) ? "Yes" : "N/A";
+}
+
   
 
 
@@ -1459,14 +1483,22 @@ async function updateDetailRecordsButton() {
   console.log("Ending Time Being Sent to database");
   console.log(document.getElementById("transferTimeFinishEdit").value);
 
+  const transferId = document.getElementById("transferHeaderIDEdit").value;
+  const endTimeValue = document.getElementById("transferTimeFinishEdit").value;
+  let finishedTankSampleResponse = "";
+
+  if (shouldPromptFinishedTankSample(transferId, endTimeValue)) {
+    finishedTankSampleResponse = getFinishedTankSampleResponse();
+  }
+
   UpdateTransferHeader(
-    document.getElementById("transferHeaderIDEdit").value,
+    transferId,
     document.getElementById("transferMachineLogonEdit").value,
     document.getElementById("transferOperatorEdit").value,
     document.getElementById("transferMachineLogonEdit").value,
     document.getElementById("transferReasonCode1Edit").value,
     document.getElementById("transferTimeStartEdit").value,
-    document.getElementById("transferTimeFinishEdit").value,
+    endTimeValue,
     document.getElementById("transferOperatorFinishEdit").value
   );
 
@@ -1520,7 +1552,9 @@ async function updateDetailRecordsButton() {
     }
     
 
-  document.getElementById("updateMSG").value = "Records Updated";
+  document.getElementById("updateMSG").value = finishedTankSampleResponse
+    ? `Records Updated. Finished tank sample: ${finishedTankSampleResponse}.`
+    : "Records Updated";
 }
 
 

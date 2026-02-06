@@ -3,8 +3,8 @@ var userType = '';
 var scaleID = '';
 
 //var APIConnection = 'http://b-d-web1:107/'
-//var APIConnection = 'http://b-p-web4:107/'
-var APIConnection = 'http://localhost:8080/'
+var APIConnection = 'http://b-p-web4:107/'
+//var APIConnection = 'http://localhost:8080/'
 //var SigConnecton = 'http://b-d-web4:82/'
 //PDF Printer?
 
