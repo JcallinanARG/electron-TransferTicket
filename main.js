@@ -55,17 +55,12 @@ function createWindow () {
   // and load the index.html of the app.
   //mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.loadURL(`file://${__dirname}/index.html`)
-  // Open the DevTools.
-
-
-  
-
 
   const { session } = require('electron')
 //Toggle for DevTools 
 
 
-  mainWindow.webContents.openDevTools()
+ mainWindow.webContents.openDevTools()
   
   const contextMenu = require('electron-context-menu');
 

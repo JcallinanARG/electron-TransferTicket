@@ -199,6 +199,38 @@ async function UpdateTransferDetail(transferDetailID,Tank,Feet,Inches,Gallons,Di
       });
     });
   }
+function anyCompleteCheckedNew() {
+  for (let i = 1; i <= 5; i++) {
+    const tank = document.getElementById(`fromBeforeTank${i}`)?.value?.trim() || "";
+    const complete = !!document.getElementById(`fromLineItemComplete${i}`)?.checked;
+    if (tank !== "" && complete) return true;
+  }
+  return false;
+}
+
+function anyCompleteCheckedEdit() {
+  for (let i = 1; i <= 5; i++) {
+    const detailId = document.getElementById(`editTransferDetailID${i}`)?.value?.trim() || "";
+    const tank = document.getElementById(`editTranferTank${i}`)?.value?.trim() || "";
+    const complete = !!document.getElementById(`editTransferCompleted${i}`)?.checked;
+
+    // prompt if it's a real line (existing detailId OR tank filled in) and complete is checked
+    if ((detailId !== "" || tank !== "") && complete) return true;
+  }
+  return false;
+}
+
+function shouldPromptSampleOnSave(transferId, endTimeValue) {
+  // prompt once per transferId+endTime per app session
+  const safeTransferId = (transferId && transferId.trim()) ? transferId.trim() : "NEW";
+  const safeEnd = (endTimeValue && endTimeValue.trim()) ? endTimeValue.trim() : "NOEND";
+  const key = `finishedTankSampleSave:${safeTransferId}:${safeEnd}`;
+
+  if (sessionStorage.getItem(key)) return false;
+  sessionStorage.setItem(key, "true");
+  return true;
+}
+
 
 function completeAllTransfer(){
   if (document.getElementById("editTransferDetailID1").value != ''){
@@ -1476,6 +1508,15 @@ console.log(searchParamJSON)
 
 }
 ///need to populate grid now
+function setUpdateMsg(text) {
+  const el = document.getElementById("updateMSG");
+  if (el) {
+    el.value = text;
+  } else {
+    // fallback if updateMSG doesn't exist on the "new" screen
+    console.log(text);
+  }
+}
 
 async function updateDetailRecordsButton() {
   console.log("Start Time Being Sent to database");
@@ -1483,11 +1524,13 @@ async function updateDetailRecordsButton() {
   console.log("Ending Time Being Sent to database");
   console.log(document.getElementById("transferTimeFinishEdit").value);
 
-  const transferId = document.getElementById("transferHeaderIDEdit").value;
+   const transferId = document.getElementById("transferHeaderIDEdit").value;
   const endTimeValue = document.getElementById("transferTimeFinishEdit").value;
+
   let finishedTankSampleResponse = "";
 
-  if (shouldPromptFinishedTankSample(transferId, endTimeValue)) {
+  // ✅ Only prompt on Save, only if any line is marked Complete
+  if (anyCompleteCheckedEdit() && shouldPromptSampleOnSave(transferId, endTimeValue)) {
     finishedTankSampleResponse = getFinishedTankSampleResponse();
   }
 
@@ -1816,6 +1859,15 @@ async function saveTransferHeader() {
 
       const transferIDInsert = String(responseData[0].TransferID);
 
+    // ✅ Finished tank sample prompt (NEW TICKET FLOW)
+      const endTimeValue = transferTimeFinish.value;
+      let finishedTankSampleResponse = "";
+
+       // ✅ Only prompt on Save, only if any new-line item is marked Complete
+      if (anyCompleteCheckedNew() && shouldPromptSampleOnSave(transferIDInsert, transferTimeFinish.value)) {
+        finishedTankSampleResponse = getFinishedTankSampleResponse();
+      }
+
       for (let i = 1; i <= 5; i++) {
         const tankId = `fromBeforeTank${i}`;
         if (document.getElementById(tankId).value.length === 0) {
@@ -1879,7 +1931,12 @@ async function saveTransferHeader() {
               //}
         }
     }
-
+ const msgEl = document.getElementById("updateMSG");
+      if (msgEl) {
+        msgEl.value = finishedTankSampleResponse
+          ? `Transfer saved. Finished tank sample: ${finishedTankSampleResponse}.`
+          : "Transfer saved.";
+      }
       document.getElementById('transferReasonCode1').value = '';
       document.getElementById('transferOperator').value = '';
       document.getElementById('transferOperatorFinish').value = '';
