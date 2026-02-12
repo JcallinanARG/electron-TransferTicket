@@ -2,7 +2,6 @@
 var http = require('http');
 const { settings } = require('cluster');
 const electron = require('electron');
-const { post } = require('jquery');
 const path = require('path');
 const { dialog } = require('electron');
 const { contextIsolated } = require('process');
